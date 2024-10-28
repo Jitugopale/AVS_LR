@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-
 const Register = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -17,6 +16,7 @@ const Register = () => {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false); // Define loading state
   const [clickedFields, setClickedFields] = useState({
     fname: false,
     Lname: false,
@@ -36,6 +36,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true on form submission
     try {
       const response = await axios.post("http://localhost:5000/api/auth/createUser", formData);
       
@@ -66,6 +67,8 @@ const Register = () => {
         setError("Network error. Please try again later.");
       }
       setSuccess(""); // Clear any previous success message
+    } finally {
+      setLoading(false); // Reset loading state after processing
     }
   };
 
@@ -127,7 +130,7 @@ const Register = () => {
         <div className="form-group">
           <label htmlFor="PhoneNo">{clickedFields.PhoneNo ? "Phone Number" : ""}</label>
           <input
-            type="number"
+            type="text"
             className="form-control controller"
             id="PhoneNo"
             name="PhoneNo"
@@ -180,8 +183,8 @@ const Register = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary mt-4">
-          Register
+        <button type="submit" className="btn bn bn-primary btn-primary" disabled={loading}>
+          {loading ? 'Registering...' : 'Register'}
         </button>
       </form>
       <div className="mt-3">
@@ -190,7 +193,6 @@ const Register = () => {
         </p>
       </div>
     </div>
-
   );
 };
 

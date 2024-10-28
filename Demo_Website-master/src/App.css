@@ -4,8 +4,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, rgba(110, 142, 251, 0.8), rgba(167, 119, 227, 0.8)), url('./css/pexels-pixabay-531880.jpg') no-repeat center center fixed;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+  background: linear-gradient(135deg, rgba(34, 193, 195, 0.8), rgba(253, 187, 45, 0.8)), url('./pexels-pixabay-531880.jpg') no-repeat center center fixed; /* Updated background gradient */
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -15,41 +15,65 @@ body {
 }
 
 /* Container Styles */
-.contain-1, .contain-2, .contain-3 {
+.container {
   max-width: 500px;
   width: 100%;
   padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.2); /* Increased transparency for depth */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Deep shadow for a floating effect */
+  backdrop-filter: blur(12px); /* Frosted glass effect */
 }
 
 /* Heading Styles */
 .heading, .heading-login, .heading-landing {
-  color: #fff;
+  color: #ffffff;
   font-weight: bold;
   margin-bottom: 1.5rem;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 8px rgba(119, 100, 100, 0.7); /* Enhanced shadow for depth */
+  font-size: 2rem; /* Increased heading size for emphasis */
 }
 
 /* Input Control Styles */
 .control, .controller {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.25); /* Increased contrast */
   border: 1px solid #ddd;
-  border-radius: 5px;
-  color: #fff;
+  border-radius: 8px; /* More rounded edges */
+  color: #1a1717; /* Default text color */
   padding: 0.8rem;
   margin-bottom: 1.2rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+  position: relative; /* For positioning the label */
 }
 
 .control::placeholder, .controller::placeholder {
-  color: #d1d5db;
+  color: #343436; /* Placeholder color */
 }
 
+/* Label Styles */
+.label {
+  position: absolute;
+  left: 1rem;
+  top: 0.6rem;
+  color: #d1d5db; /* Default label color */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Focus Styles */
 .control:focus, .controller:focus {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-color: #6e8efb;
-  outline: none;
+  background-color: rgba(255, 255, 255, 0.3); /* Focus background color */
+  border-color: #48bb78; /* Focus border color */
+  outline: none; /* Remove outline */
+}
+
+.control:focus::placeholder, .controller:focus::placeholder {
+  color: black; /* Placeholder color on focus */
+}
+
+.control:focus + .label, .controller:focus + .label,
+.clicked .label { /* Added a class to control label color */
+  color: black; /* Label color on input focus */
+  transform: translateY(-1.5rem) scale(0.8); /* Move label up and shrink */
 }
 
 /* Button Styles */
@@ -59,19 +83,21 @@ body {
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  border-radius: 8px; /* More rounded buttons */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Transition effects */
   margin-top: 1rem;
 }
 
 .bttn-primary, .bn-primary {
-  background-color: #5a67d8;
+  background-color: #5a67d8; /* Button color */
   border: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
 }
 
 .bttn-primary:hover, .bn-primary:hover {
-  background-color: #4c51bf;
-  transform: translateY(-2px);
+  background-color: #4c51bf; /* Hover color */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25); /* Stronger shadow on hover */
 }
 
 /* Alert Styles */
@@ -80,14 +106,31 @@ body {
   border-radius: 5px;
   font-weight: bold;
   margin-top: 1rem;
+  display: flex; /* Flexbox for content alignment */
+  justify-content: space-between; /* Space between message and close button */
+  align-items: center; /* Center content */
 }
 
 .stand-danger {
-  background-color: #fc8181;
+  background-color: #fc8181; /* Alert color */
   color: #fff;
 }
 
 .stand-success {
-  background-color: #68d391;
+  background-color: #68d391; /* Alert color */
   color: #fff;
+}
+
+/* Optional Close Button for Alerts */
+.stand button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+.stand button:hover {
+  color: #ffdddd; /* Close button hover color */
 }
