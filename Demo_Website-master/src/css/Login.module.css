@@ -57,3 +57,7 @@
     transform: translateY(-2px);
   }
   
+  .login-link{
+    color: red; /* Change color on hover */
+  }
+  

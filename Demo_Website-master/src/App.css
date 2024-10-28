@@ -1,3 +1,6 @@
+/* App.css */
+
+/* Global Styles */
 body {
   margin: 0;
   padding: 0;
@@ -8,5 +11,83 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #fff;
+}
+
+/* Container Styles */
+.contain-1, .contain-2, .contain-3 {
+  max-width: 500px;
+  width: 100%;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading Styles */
+.heading, .heading-login, .heading-landing {
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Input Control Styles */
+.control, .controller {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #fff;
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.control::placeholder, .controller::placeholder {
+  color: #d1d5db;
+}
+
+.control:focus, .controller:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: #6e8efb;
+  outline: none;
+}
+
+/* Button Styles */
+.bttn, .bn {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+.bttn-primary, .bn-primary {
+  background-color: #5a67d8;
+  border: none;
+}
+
+.bttn-primary:hover, .bn-primary:hover {
+  background-color: #4c51bf;
+  transform: translateY(-2px);
+}
+
+/* Alert Styles */
+.stand {
+  padding: 0.8rem;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.stand-danger {
+  background-color: #fc8181;
+  color: #fff;
+}
+
+.stand-success {
+  background-color: #68d391;
   color: #fff;
 }
