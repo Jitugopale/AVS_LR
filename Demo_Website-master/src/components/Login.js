@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import '../App.css';
+import '../css/Login.module.css';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -51,15 +52,15 @@ const Login = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Login</h2>
+    <div className="container contain-2 mt-5">
+      <h2 className='heading-login'>Login</h2>
       <form onSubmit={handleLogin}>
         {error && <div className="alert alert-danger" aria-live="polite">{error}</div>}
         <div className="mb-3">
           <label htmlFor="email">{clickedFields.email ? "Email" : ""}</label>
           <input
             type="email"
-            className="form-control"
+            className="form-control control"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -73,7 +74,7 @@ const Login = () => {
           <label htmlFor="password">{clickedFields.password ? "Password" : ""}</label>
           <input
             type="password"
-            className="form-control"
+            className="form-control control"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -83,7 +84,7 @@ const Login = () => {
             placeholder={clickedFields.password ? "" : "Password"} // Clear placeholder if clicked
           />
         </div>
-        <button type="submit" className="btn btn-primary" disabled={loading}>
+        <button type="submit" className="btn bn bn-primary btn-primary" disabled={loading}>
           {loading ? 'Logging in...' : 'Login'}
         </button>
       </form>

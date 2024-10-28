@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import '../css/Register.module.css';
+
 
 const Register = () => {
   const navigate = useNavigate();
@@ -76,16 +78,16 @@ const Register = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Register</h2>
-      {error && <div className="alert alert-danger">{error}</div>}
-      {success && <div className="alert alert-success">{success}</div>}
+    <div className="container contain-1 mt-5">
+      <h2 className="heading">Register</h2>
+      {error && <div className="alert stand stand-danger alert-danger">{error}</div>}
+      {success && <div className="alert stand stand-success alert-success">{success}</div>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="fname">{clickedFields.fname ? "First Name" : ""}</label>
           <input
             type="text"
-            className="form-control"
+            className="form-control controller"
             id="fname"
             name="fname"
             onClick={() => handleInputClick("fname")}
@@ -99,7 +101,7 @@ const Register = () => {
           <label htmlFor="Lname">{clickedFields.Lname ? "Last Name" : ""}</label>
           <input
             type="text"
-            className="form-control"
+            className="form-control controller"
             id="Lname"
             name="Lname"
             onClick={() => handleInputClick("Lname")}
@@ -113,7 +115,7 @@ const Register = () => {
           <label htmlFor="Address">{clickedFields.Address ? "Address" : ""}</label>
           <input
             type="text"
-            className="form-control"
+            className="form-control controller"
             id="Address"
             name="Address"
             onClick={() => handleInputClick("Address")}
@@ -127,7 +129,7 @@ const Register = () => {
           <label htmlFor="PhoneNo">{clickedFields.PhoneNo ? "Phone Number" : ""}</label>
           <input
             type="number"
-            className="form-control"
+            className="form-control controller"
             id="PhoneNo"
             name="PhoneNo"
             onClick={() => handleInputClick("PhoneNo")}
@@ -141,7 +143,7 @@ const Register = () => {
           <label htmlFor="email">{clickedFields.email ? "Email" : ""}</label>
           <input
             type="email"
-            className="form-control"
+            className="form-control controller"
             id="email"
             name="email"
             onClick={() => handleInputClick("email")}
@@ -155,7 +157,7 @@ const Register = () => {
           <label htmlFor="password">{clickedFields.password ? "Password" : ""}</label>
           <input
             type="password"
-            className="form-control"
+            className="form-control controller"
             id="password"
             name="password"
             onClick={() => handleInputClick("password")}
@@ -169,7 +171,7 @@ const Register = () => {
           <label htmlFor="City">{clickedFields.City ? "City" : ""}</label>
           <input
             type="text"
-            className="form-control"
+            className="form-control controller"
             id="City"
             name="City"
             onClick={() => handleInputClick("City")}
